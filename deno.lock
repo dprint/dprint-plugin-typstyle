@@ -6,7 +6,7 @@
     "jsr:@david/gagen@0.5": "0.5.1",
     "jsr:@david/path@0.2": "0.2.0",
     "jsr:@david/which@~0.4.1": "0.4.2",
-    "jsr:@dprint/automation@0.12.2": "0.12.2",
+    "jsr:@dprint/automation@0.12.5": "0.12.5",
     "jsr:@std/bytes@^1.0.6": "1.0.6",
     "jsr:@std/fmt@1": "1.0.10",
     "jsr:@std/fs@1": "1.0.24",
@@ -49,8 +49,8 @@
     "@david/which@0.4.2": {
       "integrity": "440ee262bc0673b57a39ad4d0dc5673e515ddd41c049a55b2588a0881e5d4a8c"
     },
-    "@dprint/automation@0.12.2": {
-      "integrity": "4065b01c0f5acadd9eed62eeadb58a8cde088c188f01f9bed32d48e3d0576881",
+    "@dprint/automation@0.12.5": {
+      "integrity": "b5cb1aa81e9e3916d5fbb8703e3070f78cf640ddf3c70451ed6b30537ddb0292",
       "dependencies": [
         "jsr:@david/dax",
         "jsr:@std/semver"
@@ -93,7 +93,7 @@
   },
   "workspace": {
     "dependencies": [
-      "jsr:@dprint/automation@0.12.2"
+      "jsr:@dprint/automation@0.12.5"
     ]
   }
 }
