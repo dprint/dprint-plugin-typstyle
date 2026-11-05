@@ -2,26 +2,57 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://plugins.dprint.dev/dprint/dprint-plugin-typstyle/0.0.0/schema.json",
   "type": "object",
+  "x-playground": {
+    "input": [
+      "#set page(paper:\"a4\",margin:(x:2cm,y:2.5cm))",
+      "#set text(font: \"Linux Libertine\",size:11pt)",
+      "#show heading.where(level:1):set text(fill:blue)",
+      "",
+      "#let total(items)={",
+      "    items.map(item=>item.price*item.quantity).sum()",
+      "}",
+      "",
+      "#let items=((name:\"Paper\",price:4.5,quantity:10),(name:\"Ink\",price:22,quantity:2),(name: \"Stapler\", price: 12, quantity: 1))",
+      "",
+      "= Quarterly supplies",
+      "",
+      "The office ordered #items.len() kinds of supplies this quarter, for a total of #total(items) dollars.",
+      "",
+      "#table(columns:3,[*Item*],[*Price*],[*Quantity*],",
+      "..items.map(item=>(item.name,str(item.price),str(item.quantity))).flatten())",
+      "",
+      "#if total(items)>100 [ Over budget! ] else [ Within budget. ]"
+    ]
+  },
   "properties": {
     "lineWidth": {
       "description": "The width of a line the formatter will try to stay under. Note that this limit will be exceeded in some cases.",
       "default": 80,
-      "type": "number"
+      "type": "integer",
+      "minimum": 1
     },
     "indentWidth": {
       "description": "The number of spaces for an indent.",
       "default": 2,
-      "type": "number"
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 255
     },
     "blankLinesUpperBound": {
       "description": "The maximum number of consecutive blank lines allowed.",
       "default": 1,
-      "type": "number"
+      "type": "integer",
+      "minimum": 0
     },
     "reorderImportItems": {
       "description": "Whether to sort the items of an import statement alphabetically.",
       "default": true,
-      "type": "boolean"
+      "type": "boolean",
+      "x-example": {
+        "input": [
+          "#import \"template.typ\": report, appendix, note"
+        ]
+      }
     },
     "wrapMode": {
       "description": "How to wrap text in markup.",
@@ -36,7 +67,15 @@
       }, {
         "const": "sentence",
         "description": "Places each sentence on its own line."
-      }]
+      }],
+      "x-example": {
+        "config": {
+          "lineWidth": 40
+        },
+        "input": [
+          "Typst is a markup-based typesetting system. It is fast and easy to learn. Its scripting language is powerful."
+        ]
+      }
     }
   }
 }
