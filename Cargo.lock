@@ -755,9 +755,9 @@ dependencies = [
 
 [[package]]
 name = "typstyle-core"
-version = "0.15.2"
+version = "0.15.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "445745ee9ba929711587f89387f4e0031bb0dad3a4fd549f028bbcb73398b821"
+checksum = "d0a2b1d9b462855074d4ed8ba27912d27ac1b692fb1543835e17a494353cb910"
 dependencies = [
  "icu_segmenter",
  "itertools",
